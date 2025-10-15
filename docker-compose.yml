@@ -1,0 +1,14 @@
+services:
+    app:
+        container_name: ${CONTAINER_NAME:-404}
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                - NEXT_PUBLIC_METADATA_TITLE=${NEXT_PUBLIC_METADATA_TITLE:-"404 Not Found"}
+                - NEXT_PUBLIC_METADATA_DESCRIPTION=${NEXT_PUBLIC_METADATA_DESCRIPTION:-"The page you are looking for does not exist."}
+                - NEXT_PUBLIC_PAGE_HEADING=${NEXT_PUBLIC_PAGE_HEADING:-"404 Not Found"}
+                - NEXT_PUBLIC_PAGE_MESSAGE=${NEXT_PUBLIC_PAGE_MESSAGE:-"The page you are looking for does not exist."}
+        ports:
+            - ${DOCKER_PORT:-3000}:3000
+        restart: unless-stopped
