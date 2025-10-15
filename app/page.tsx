@@ -1,3 +1,5 @@
+import Link from "next/link"
+
 const pageHeading = process.env.NEXT_PUBLIC_PAGE_HEADING
     ? process.env.NEXT_PUBLIC_PAGE_HEADING
     : "404 Not Found"
@@ -5,6 +7,10 @@ const pageHeading = process.env.NEXT_PUBLIC_PAGE_HEADING
 const pageMessage = process.env.NEXT_PUBLIC_PAGE_MESSAGE
     ? process.env.NEXT_PUBLIC_PAGE_MESSAGE
     : "The page you are looking for does not exist."
+
+const supportUrl = process.env.NEXT_PUBLIC_SUPPORT_URL
+    ? process.env.NEXT_PUBLIC_SUPPORT_URL
+    : null
 
 export default function Home() {
     return (
@@ -19,12 +25,14 @@ export default function Home() {
                     </div>
                 </div>
 
-                {/* <a
-                    className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-12 px-6"
-                    href="/contact"
-                >
-                    Contact Support
-                </a> */}
+                {supportUrl && (
+                    <Link
+                        className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-12 px-6"
+                        href={supportUrl}
+                    >
+                        Contact Support
+                    </Link>
+                )}
             </main>
         </div>
     )
