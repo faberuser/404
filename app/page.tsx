@@ -17,12 +17,14 @@ export default function Home() {
         <div className="font-sans flex items-center justify-center min-h-screen p-8">
             <main className="flex flex-col items-center text-center gap-8">
                 <div className="space-y-4">
-                    <div className="text-3xl font-semibold text-gray-800 dark:text-gray-100">
-                        {pageHeading}
-                    </div>
-                    <div className="text-gray-600 dark:text-gray-400 text-lg">
-                        {pageMessage}
-                    </div>
+                    <div
+                        className="text-3xl font-semibold text-gray-800 dark:text-gray-100"
+                        dangerouslySetInnerHTML={{ __html: pageHeading }}
+                    />
+                    <div
+                        className="text-gray-600 dark:text-gray-400 text-lg"
+                        dangerouslySetInnerHTML={{ __html: pageMessage }}
+                    />
                 </div>
 
                 {supportUrl && (
